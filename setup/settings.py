@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'tekoaguaDB',
         'USER': 'postgres',
         'PASSWORD': '5932652225rai',
-        'HOST': 'localhost',
+        'HOST': 'tekoaguadb.czakky8wgijx.us-east-2.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
