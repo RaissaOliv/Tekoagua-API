@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from tekoagua.models import User, Person, Company, Trash, TrashLocation, CompanyTrashOwner
+from validate_docbr import CNPJ
 
 class PersonSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,6 +16,12 @@ class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
         fields = "__all__"
+    def validate_cnpj(self, cnpj):
+        is_cnpj = CNPJ()
+        if not is_cnpj.validate(cnpj):
+            raise serializers.ValidationError({"cnpj":"insira um cnpj válido!"})
+        return cnpj
+
 
 class TrashSerializer(serializers.ModelSerializer):
      class Meta:

@@ -28,6 +28,7 @@ class Person(models.Model):
     id = id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    is_active = models.BooleanField(default=True)
 
 class TrashLocation(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
