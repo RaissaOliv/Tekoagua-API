@@ -66,6 +66,15 @@ CORS_ALLOW_METHODS = (
     "PUT",
 )
 
+CORS_ALLOW_HEADERS = (
+    "accept",
+    "authorization",
+    "content-type",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+)
+
 ROOT_URLCONF = 'setup.urls'
 
 TEMPLATES = [
