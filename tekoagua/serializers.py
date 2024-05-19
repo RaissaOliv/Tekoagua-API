@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from tekoagua.models import User, Person, Company, Trash, TrashLocation, CompanyTrashOwner
+from tekoagua.models import User, Person, Company, Trash, TrashLocation, CompanyTrashOwner, TrashLog
 from validate_docbr import CNPJ
 
 class PersonSerializer(serializers.ModelSerializer):
@@ -36,4 +36,9 @@ class TrashLocationSerializer(serializers.Serializer):
 class CompanyTrashOwnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = CompanyTrashOwner
+        fields = "__all__"
+
+class TrashLogSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TrashLog
         fields = "__all__"
