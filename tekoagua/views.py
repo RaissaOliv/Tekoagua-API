@@ -1,6 +1,6 @@
 from rest_framework import viewsets, generics
-from tekoagua.models import User, Company, Trash, TrashLocation, CompanyTrashOwner, Person
-from tekoagua.serializers import UserSerializer, CompanySerializer, CompanyTrashOwnerSerializer, TrashLocationSerializer, TrashSerializer, PersonSerializer 
+from tekoagua.models import User, Company, Trash, TrashLocation, CompanyTrashOwner, Person, TrashLog
+from tekoagua.serializers import UserSerializer, CompanySerializer, CompanyTrashOwnerSerializer, TrashLocationSerializer, TrashSerializer, PersonSerializer, TrashLogSerializer 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -27,5 +27,9 @@ class CompanyTrashOwnerViewSet(generics.CreateAPIView):
         queryset = CompanyTrashOwner.objects.filter(company=self.kwargs['company'])
         return queryset
     serializer_class = CompanyTrashOwnerSerializer
+
+class TrashLogViewSet(viewsets.ModelViewSet):
+    queryset = TrashLog.objects.all()
+    serializer_class = TrashLogSerializer
     
 # Create your views here.
