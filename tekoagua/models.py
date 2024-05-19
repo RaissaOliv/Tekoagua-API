@@ -42,7 +42,7 @@ class TrashLocation(models.Model):
     
 class Trash(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    trash_location = models.ForeignKey(TrashLocation, on_delete=models.PROTECT)
+    trash_location = models.ForeignKey(TrashLocation, on_delete=models.PROTECT, null=True, blank=True)
     is_active = models.BooleanField(default=True)
 class CompanyTrashOwner(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
