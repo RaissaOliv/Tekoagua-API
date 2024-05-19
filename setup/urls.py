@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from tekoagua.views import TrashLocationViewSet, TrashViewSet, UserViewSet, CompanyViewSet, CompanyTrashOwnerViewSet
+from tekoagua.views import TrashLocationViewSet, TrashViewSet, UserViewSet, CompanyViewSet, CompanyTrashOwnerViewSet, TrashLogViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -24,6 +24,7 @@ router.register('company', CompanyViewSet, basename='Company')
 router.register('trashLocation', TrashLocationViewSet, basename='TrashLocation')
 router.register('trash', TrashViewSet, basename='Trash')
 router.register('user', UserViewSet, basename='User')
+router.register("trashLog", TrashLocationViewSet, basename="TrashLog")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
