@@ -41,12 +41,17 @@ class TrashLocation(models.Model):
     
     
 class Trash(models.Model):
-    id = models.URLField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     trash_location = models.ForeignKey(TrashLocation, on_delete=models.PROTECT)
     is_active = models.BooleanField(default=True)
-
 class CompanyTrashOwner(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     trash = models.ForeignKey(Trash, on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
+
+class TrashLog(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    companyOwner = models.ForeignKey(CompanyTrashOwner, on_delete=models.CASCADE)
+    date = models.DateField(blank=True, null=True)
+    weight = models.CharField(max_length=50, blank=True, null=True)
