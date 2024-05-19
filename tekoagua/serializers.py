@@ -28,7 +28,7 @@ class TrashSerializer(serializers.ModelSerializer):
         model = Trash
         fields = "__all__"
 
-class TrashLocationSerializer(serializers.Serializer):
+class TrashLocationSerializer(serializers.ModelSerializer):
      class Meta:
         model = TrashLocation
         fields = "__all__"
