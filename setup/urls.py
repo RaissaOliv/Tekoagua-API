@@ -24,7 +24,7 @@ router.register('company', CompanyViewSet, basename='Company')
 router.register('trashLocation', TrashLocationViewSet, basename='TrashLocation')
 router.register('trash', TrashViewSet, basename='Trash')
 router.register('user', UserViewSet, basename='User')
-router.register("trashLog", TrashLocationViewSet, basename="TrashLog")
+router.register("trashLog", TrashLogViewSet, basename="TrashLog")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
