@@ -5,6 +5,14 @@ from tekoagua.serializers import UserSerializer, CompanySerializer, CompanyTrash
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    
+    def get_queryset(self):
+            queryset = User.objects.all()
+            email = self.request.query_params.get('email', None)
+    
+            if email is not None:
+                queryset = queryset.filter(email=email)
+            return queryset
 
 class PersonViewSet(viewsets.ModelViewSet):
     queryset = Person.objects.filter(is_active=True)
