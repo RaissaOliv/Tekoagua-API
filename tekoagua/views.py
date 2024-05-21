@@ -1,6 +1,6 @@
 from rest_framework import viewsets, generics
-from tekoagua.models import User, Company, Trash, TrashLocation, CompanyTrashOwner, Person, TrashLog
-from tekoagua.serializers import UserSerializer, CompanySerializer, CompanyTrashOwnerSerializer, TrashLocationSerializer, TrashSerializer, PersonSerializer, TrashLogSerializer 
+from tekoagua.models import User, Company, Trash, TrashLocation, CompanyTrashOwner, Person, TrashLog, Profile
+from tekoagua.serializers import ProfileSerializer, UserSerializer, CompanySerializer, CompanyTrashOwnerSerializer, TrashLocationSerializer, TrashSerializer, PersonSerializer, TrashLogSerializer 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -17,9 +17,12 @@ class UserViewSet(viewsets.ModelViewSet):
 class PersonViewSet(viewsets.ModelViewSet):
     queryset = Person.objects.filter(is_active=True)
     serializer_class = PersonSerializer
-    
+
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
 class CompanyViewSet(viewsets.ModelViewSet):
-    queryset = Company.objects.all()
+    queryset = Company.objects.filter(is_active=True)
     serializer_class = CompanySerializer
 
 class TrashViewSet(viewsets.ModelViewSet):
