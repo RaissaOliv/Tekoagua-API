@@ -38,9 +38,6 @@ class CompanyTrashOwnerViewSet(generics.CreateAPIView):
 
 class TrashLogViewSet(viewsets.ModelViewSet):
     queryset = TrashLog.objects.all()
-    def get_queryset(self):
-        queryset = TrashLog.objects.filter(companyOwner=self.kwargs['companyOwner'])
-        return queryset
     serializer_class = TrashLogSerializer
     
 # Create your views here.
