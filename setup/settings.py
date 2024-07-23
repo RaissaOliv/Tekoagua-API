@@ -88,7 +88,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'setup.wsgi.application'
-f
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
