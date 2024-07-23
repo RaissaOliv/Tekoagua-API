@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from tekoagua.views import TrashLocationViewSet, TrashViewSet, UserViewSet, CompanyViewSet, CompanyTrashOwnerViewSet, TrashLogViewSet
 from rest_framework import routers
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns 
 
 router = routers.DefaultRouter()
 router.register('company', CompanyViewSet, basename='Company')
@@ -31,3 +32,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('company/<str:company_name>/trashOwner', CompanyTrashOwnerViewSet.as_view())
 ]
+
+urlpatterns += staticfiles_urlpatterns()

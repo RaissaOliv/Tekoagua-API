@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-kdjsp^pjtn=daua-)i#^^#abq&i+)y1#u)o^x7+av!3_6qi144
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -87,7 +87,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'setup.wsgi.application'
+WSGI_APPLICATION = 'tekoagua.wsgi.application'
 
 
 # Database
