@@ -87,7 +87,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tekoagua.wsgi.application'
+WSGI_APPLICATION = 'setup.wsgi.application'
 
 
 # Database
